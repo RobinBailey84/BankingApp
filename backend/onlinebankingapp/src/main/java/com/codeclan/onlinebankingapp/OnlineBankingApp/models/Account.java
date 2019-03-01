@@ -131,4 +131,9 @@ public class Account {
     public void setAccountType(String accountType) {
         this.accountType = accountType;
     }
+
+
+    public void addTransaction(Transaction transaction) {
+        this.transactions.add(transaction);
+    }
 }
