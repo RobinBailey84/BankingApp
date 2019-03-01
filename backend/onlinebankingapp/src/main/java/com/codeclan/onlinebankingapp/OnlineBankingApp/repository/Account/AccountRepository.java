@@ -1,4 +1,4 @@
-package com.codeclan.onlinebankingapp.OnlineBankingApp.repository;
+package com.codeclan.onlinebankingapp.OnlineBankingApp.repository.Account;
 
 import com.codeclan.onlinebankingapp.OnlineBankingApp.models.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
