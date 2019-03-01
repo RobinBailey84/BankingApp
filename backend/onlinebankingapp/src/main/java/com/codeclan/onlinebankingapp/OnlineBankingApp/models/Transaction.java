@@ -4,6 +4,8 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -72,5 +74,9 @@ public class Transaction {
 
     public void setAccounts(List<Account> accounts) {
         this.accounts = accounts;
+    }
+
+    public void addAccount(Account account) {
+        this.accounts.add(account);
     }
 }
