@@ -3,6 +3,9 @@ package com.codeclan.onlinebankingapp.OnlineBankingApp.models;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "transactions")
@@ -18,6 +21,9 @@ public class Transaction {
     @Column
     private String description;
 
+    @Column
+    private Date transactionDate;
+
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
@@ -27,9 +33,11 @@ public class Transaction {
     )
     private List<Account> accounts;
 
-    public Transaction(int amount, String description) {
+    public Transaction(int amount, String description, Date transactionDate) {
         this.amount = amount;
         this.description = description;
+        this.transactionDate = transactionDate;
+        this.accounts = new ArrayList<Account>();
     }
 
     public Transaction() {
