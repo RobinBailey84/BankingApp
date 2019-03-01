@@ -39,6 +39,7 @@ public class Account {
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
+            name = "accounts_transactions",
             joinColumns = {@JoinColumn(name = "account_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "transaction_id", nullable = false, updatable = false)}
     )
