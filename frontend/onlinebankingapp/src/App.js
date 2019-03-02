@@ -9,6 +9,7 @@ class App extends Component {
       <Router>
       <React.Fragment>
       <Switch>
+      <p>Hello</p>
       <Route exact path = '/customers' component={CustomerContainer}/>
       </Switch>
       </ React.Fragment>
