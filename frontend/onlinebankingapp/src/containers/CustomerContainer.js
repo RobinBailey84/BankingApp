@@ -7,7 +7,7 @@ class CustomerContainer extends Component {
   constructor(props){
     super(props);
     this.state = {customers: []}
-
+    console.log(props);
   }
 
 
@@ -23,7 +23,9 @@ class CustomerContainer extends Component {
 
   render(){
     return(
+      <div>
       <SingleCustomer customer={this.state.customers} />
+      </div>
     )
   }
 }
