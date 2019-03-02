@@ -5,6 +5,23 @@ class Request{
     .then((res) => res.json());
   }
 
+  post(url, body, method) {
+    return fetch(url,
+    {
+      method: method,
+      body: JSON.stringify(body),
+      headers: {'Content-Type': 'application/json'}
+    })
+    .then(
+      response => {
+          if(response.ok){
+            return response.json()
+          }else{
+            {}
+          }
+      }
+    )
+  }
 }
 
 export default Request;
