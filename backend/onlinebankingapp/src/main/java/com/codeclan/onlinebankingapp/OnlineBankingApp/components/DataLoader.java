@@ -4,9 +4,13 @@ import com.codeclan.onlinebankingapp.OnlineBankingApp.models.Account;
 import com.codeclan.onlinebankingapp.OnlineBankingApp.models.Customer;
 import com.codeclan.onlinebankingapp.OnlineBankingApp.models.Transaction;
 import com.codeclan.onlinebankingapp.OnlineBankingApp.repository.Account.AccountRepository;
+<<<<<<< HEAD
 
 import com.codeclan.onlinebankingapp.OnlineBankingApp.repository.Customer.CustomerRepository;
 
+=======
+import com.codeclan.onlinebankingapp.OnlineBankingApp.repository.Customer.CustomerRepository;
+>>>>>>> 154398df6f0c862d1f901bdb1b71dc655764285f
 import com.codeclan.onlinebankingapp.OnlineBankingApp.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -65,6 +69,24 @@ public class DataLoader implements ApplicationRunner {
         }
         Transaction transaction1 = new Transaction(100, "Holiday",date);
         transactionRepository.save(transaction1);
+
+        Transaction transaction2 = new Transaction(55, "Petrol Station", date);
+        transactionRepository.save(transaction2);
+
+        Transaction transaction3 = new Transaction(75, "Marks & Spencer", date);
+        transactionRepository.save(transaction3);
+
+        account1.addTransaction(transaction1);
+        account1.addTransaction(transaction2);
+        accountRepository.save(account1);
+
+        
+
+
+
     }
+
+
+
 }
 
