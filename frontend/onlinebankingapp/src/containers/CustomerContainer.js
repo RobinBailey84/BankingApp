@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import SingleCustomer from '../components/SingleCustomer';
-import Request from './../helpers/request';
+import Request from '../helpers/request';
 
 class CustomerContainer extends Component {
 
