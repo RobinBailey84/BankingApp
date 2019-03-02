@@ -26,11 +26,11 @@ public class Customer {
     @Column
     private int salary;
 
-    @Column
+    @Column(name = "credit_rating")
     private int creditRating;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "customer")
     private List<Account> accounts;
 
 //    private List<Loan> loan;
@@ -42,7 +42,7 @@ public class Customer {
         this.address = address;
         this.salary = salary;
         this.creditRating = creditRating;
-        this.accounts = new ArrayList<Account>();
+        this.accounts = new ArrayList<>();
     }
 
     public Customer() {
