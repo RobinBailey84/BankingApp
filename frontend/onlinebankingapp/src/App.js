@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import './App.css';
 import CustomerContainer from './containers/CustomerContainer';
 
 class App extends Component {
@@ -8,10 +7,9 @@ class App extends Component {
     return (
       <Router>
       <React.Fragment>
-      <Switch>
-      <p>Hello</p>
-      <Route exact path = '/customers' component={CustomerContainer}/>
-      </Switch>
+
+      <Route exact path = 'customers/' component={CustomerContainer}/>
+
       </ React.Fragment>
       </Router>
 
