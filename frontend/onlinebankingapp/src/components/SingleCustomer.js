@@ -3,10 +3,10 @@ import {Link} from 'react-router-dom';
 
 const SingleCustomer = (props) => {
 
-
+console.log(props);
   return (
     <div className="component">
-    <p>Hello, {props.customer.name}</p>
+    <p>Hello customer, {props.customer.name}</p>
 
 
     </div>
