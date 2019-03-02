@@ -3,8 +3,8 @@ package com.codeclan.onlinebankingapp.OnlineBankingApp;
 import com.codeclan.onlinebankingapp.OnlineBankingApp.models.Account;
 import com.codeclan.onlinebankingapp.OnlineBankingApp.models.Customer;
 import com.codeclan.onlinebankingapp.OnlineBankingApp.models.Transaction;
-import com.codeclan.onlinebankingapp.OnlineBankingApp.repository.AccountRepository;
-import com.codeclan.onlinebankingapp.OnlineBankingApp.repository.CustomerRepository;
+import com.codeclan.onlinebankingapp.OnlineBankingApp.repository.Account.AccountRepository;
+import com.codeclan.onlinebankingapp.OnlineBankingApp.repository.Customer.CustomerRepository;
 import com.codeclan.onlinebankingapp.OnlineBankingApp.repository.TransactionRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -68,18 +68,7 @@ public class OnlineBankingAppApplicationTests {
 
 	}
 
-	@Test
-	public void addAccountToCustomer(){
-		Customer customer1 = new Customer("Robin Bailey", "Arseanl", "9 Laurel Park", 20000, 4 );
-		customerRepository.save(customer1);
 
-
-		Account account1 = new Account(12345678, 123456, "regular", 1, 1000, customer1, "Current Account");
-		accountRepository.save(account1);
-
-		customer1.addAccount(account1);
-		assertEquals(1, customer1.getAccounts());
-	}
 
 
 }
