@@ -4,13 +4,9 @@ import com.codeclan.onlinebankingapp.OnlineBankingApp.models.Account;
 import com.codeclan.onlinebankingapp.OnlineBankingApp.models.Customer;
 import com.codeclan.onlinebankingapp.OnlineBankingApp.models.Transaction;
 import com.codeclan.onlinebankingapp.OnlineBankingApp.repository.Account.AccountRepository;
-<<<<<<< HEAD
 
 import com.codeclan.onlinebankingapp.OnlineBankingApp.repository.Customer.CustomerRepository;
 
-=======
-import com.codeclan.onlinebankingapp.OnlineBankingApp.repository.Customer.CustomerRepository;
->>>>>>> 154398df6f0c862d1f901bdb1b71dc655764285f
 import com.codeclan.onlinebankingapp.OnlineBankingApp.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -50,10 +46,10 @@ public class DataLoader implements ApplicationRunner {
         customerRepository.save(customer3);
 
 
-        Account account1 = new Account(12345678, 123456, "regular", 1, 1000, customer1, "Current Account");
+        Account account1 = new Account(12345678, 123456, "regular", 1, 10000, customer1, "Current Account");
         accountRepository.save(account1);
 
-        Account account2 = new Account(11223344, 654321, "holiday saver", 3, 0, customer2, "Saving Account");
+        Account account2 = new Account(11223344, 654321, "holiday saver", 3, 1200, customer2, "Savings Account");
         accountRepository.save(account2);
 
         Account account3 = new Account(22334455, 112233, "car savings", 4, 10, customer3, "ISA Account");
@@ -67,17 +63,18 @@ public class DataLoader implements ApplicationRunner {
         }	catch (ParseException e){
             e.printStackTrace();
         }
-        Transaction transaction1 = new Transaction(100, "Holiday",date);
+        Transaction transaction1 = new Transaction(100, "Flights",date, account1);
         transactionRepository.save(transaction1);
 
-        Transaction transaction2 = new Transaction(55, "Petrol Station", date);
+        Transaction transaction2 = new Transaction(55, "Petrol Station", date, account1);
         transactionRepository.save(transaction2);
 
-        Transaction transaction3 = new Transaction(75, "Marks & Spencer", date);
+        Transaction transaction3 = new Transaction(75, "Marks & Spencer", date, account1);
         transactionRepository.save(transaction3);
 
         account1.addTransaction(transaction1);
-        account1.addTransaction(transaction2);
+        account2.addTransaction(transaction2);
+        account1.addTransaction(transaction3);
         accountRepository.save(account1);
 
         

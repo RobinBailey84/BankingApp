@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,23 +23,18 @@ public class Transaction {
     @Column
     private String description;
 
-    @Column
+    @Column(name = "transaction_date")
     private Date transactionDate;
 
-    @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            name = "accounts_transactions",
-            joinColumns = {@JoinColumn(name = "transaction_id", nullable = false, updatable = false)},
-            inverseJoinColumns = {@JoinColumn(name="account_id", nullable = false, updatable = false)}
-    )
-    private List<Account> accounts;
+    @ManyToOne
+    @JoinColumn(name = "account_id", nullable = false)
+    private Account account;
 
-    public Transaction(int amount, String description, Date transactionDate) {
+    public Transaction(int amount, String description, Date transactionDate, Account account) {
         this.amount = amount;
         this.description = description;
         this.transactionDate = transactionDate;
-        this.accounts = new ArrayList<Account>();
+        this.account = account;
     }
 
     public Transaction() {
@@ -68,15 +64,19 @@ public class Transaction {
         this.description = description;
     }
 
-    public List<Account> getAccounts() {
-        return accounts;
+    public Date getTransactionDate() {
+        return transactionDate;
     }
 
-    public void setAccounts(List<Account> accounts) {
-        this.accounts = accounts;
+    public void setTransactionDate(Date transactionDate) {
+        this.transactionDate = transactionDate;
     }
 
-    public void addAccount(Account account) {
-        this.accounts.add(account);
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }
