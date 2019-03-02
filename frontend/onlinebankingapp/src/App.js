@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import CustomerContainer from './containers/CustomerContainer';
+import LoginContainer from './containers/LoginContainer';
 
 class App extends Component {
   render() {
@@ -9,7 +10,7 @@ class App extends Component {
       <Router>
       <React.Fragment>
       <Switch>
-      <p>Hello</p>
+      <Route exact path = '/login' component={LoginContainer}/>
       <Route exact path = '/customers' component={CustomerContainer}/>
       </Switch>
       </ React.Fragment>
