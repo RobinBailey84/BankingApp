@@ -5,10 +5,10 @@ class Request{
     .then((res) => res.json());
   }
 
-  post(url, body, method) {
+  post(url, body) {
     return fetch(url,
     {
-      method: method,
+      method: "POST",
       body: JSON.stringify(body),
       headers: {'Content-Type': 'application/json'}
     })
