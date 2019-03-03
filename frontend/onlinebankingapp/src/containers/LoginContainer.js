@@ -20,7 +20,7 @@ class LoginContainer extends Component {
 
     request.post(url, login, method).then((data) => {
       this.setState({customer: data})
-      if(data){
+      if(!this.isEmpty(data)){
         this.setState({loggedIn: true})
       }
       console.log(data);
@@ -33,6 +33,15 @@ class LoginContainer extends Component {
     }else{
       return <LoginForm onSubmit={this.handleLogin}/>
     }
+  }
+
+  //Following method checks if the Json object is empty
+  isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
   }
 }
 

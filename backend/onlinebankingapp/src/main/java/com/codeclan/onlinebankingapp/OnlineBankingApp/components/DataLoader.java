@@ -77,8 +77,9 @@ public class DataLoader implements ApplicationRunner {
         account1.addTransaction(transaction3);
         accountRepository.save(account1);
 
-        
-
+        customer1.addAccount(account1);
+        customer1.addAccount(account2);
+        customerRepository.save(customer1);
 
 
     }

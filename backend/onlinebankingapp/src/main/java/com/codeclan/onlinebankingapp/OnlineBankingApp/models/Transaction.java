@@ -1,5 +1,6 @@
 package com.codeclan.onlinebankingapp.OnlineBankingApp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -26,6 +27,7 @@ public class Transaction {
     @Column(name = "transaction_date")
     private Date transactionDate;
 
+    @JsonIgnoreProperties(value = "transactions")
     @ManyToOne
     @JoinColumn(name = "account_id", nullable = false)
     private Account account;

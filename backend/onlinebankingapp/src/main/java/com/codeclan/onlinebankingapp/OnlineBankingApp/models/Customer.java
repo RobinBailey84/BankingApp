@@ -29,7 +29,6 @@ public class Customer {
     @Column(name = "credit_rating")
     private int creditRating;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "customer")
     private List<Account> accounts;
 
