@@ -1,5 +1,7 @@
 package com.codeclan.onlinebankingapp.OnlineBankingApp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -32,6 +34,7 @@ public class Account {
     @Column(name = "balance")
     private double balance;
 
+    @JsonIgnoreProperties(value = "accounts")
     @ManyToOne
     @JoinColumn(name="customer_id", nullable = false)
     private Customer customer;
