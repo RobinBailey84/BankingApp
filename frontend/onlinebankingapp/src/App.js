@@ -9,7 +9,7 @@ class App extends Component {
       <Router>
       <React.Fragment>
       <Switch>
-      <Route exact path = '/login' component={LoginContainer}/>
+      <Route exact path = '/' component={LoginContainer}/>
       <Route exact path = '/customers' component={CustomerContainer}/>
       </Switch>
       </ React.Fragment>
