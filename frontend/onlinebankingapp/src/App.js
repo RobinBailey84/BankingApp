@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import CustomerContainer from './containers/CustomerContainer';
 import LoginContainer from './containers/LoginContainer';
 
 class App extends Component {
@@ -10,7 +9,6 @@ class App extends Component {
       <React.Fragment>
       <Switch>
       <Route exact path = '/' component={LoginContainer}/>
-      <Route exact path = '/customers' component={CustomerContainer}/>
       </Switch>
       </ React.Fragment>
       </Router>
