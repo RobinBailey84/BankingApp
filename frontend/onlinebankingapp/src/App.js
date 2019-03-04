@@ -15,27 +15,22 @@ class App extends Component {
     this.handleLogin = this.handleLogin.bind(this);
   }
 
+  handleLogin(loggedInUser){
+    console.log(loggedInUser);
+    // const url = '/api/customers/' + loggedInUser.id;
+    // const request = new Request()
+    this.setState({ customer: loggedInUser })
 
-
-  handleLogin(){
-    const url = '/api/customers/1'
-    const request = new Request()
-
-    request.get(url).then((data) => {
-      this.setState({customer: data})
-    })
   }
+
   render() {
+    if (this.state.customer) return <AccountContainer customer ={this.state.customer} />
     return (
       <Router>
       <React.Fragment>
       <Switch>
-      <Route exact path = '/' component={LoginContainer} onLogin={this.handleLogin}/>
+      <Route exact path = '/' render= {() => <LoginContainer onLogin={this.handleLogin} />} />
       <Route exact path = '/customers/accounts/' render ={(props) => {
-        if(!this.state.customer){
-        this.handleLogin();
-      }
-        console.log(this.state.customer);
         return<AccountContainer customer ={this.state.customer} />
       }
     }

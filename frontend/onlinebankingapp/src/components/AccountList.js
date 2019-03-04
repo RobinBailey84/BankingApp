@@ -20,25 +20,15 @@ const AccountList = (props) => {
     )
   }
 )
-//
-// const transactions = props.accounts.map((account) => {
-//       const transactions = account.transactions.map((transaction) => {
-//         console.log(transaction)
-//         return (
-//           <li key ={transaction.id} className= "component-item">
-//           <Transaction transaction={transaction}/>
-//           </li>
-//         )
-//       }
-//     )
-//   }
-// )
 
 
   return (
+    <div>
     <ul className="component-list">
     {accounts}
     </ul>
+    </div>
+
   )
 }
 

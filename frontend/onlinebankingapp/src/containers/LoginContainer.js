@@ -10,17 +10,27 @@ class LoginContainer extends Component {
 
   constructor(props){
     super(props);
-    this.state = {loggedIn: false}
+    this.state = {
+      loggedIn: false,
+    }
     this.handleLogin = this.handleLogin.bind(this);
   }
 
   handleLogin(login){
+    console.log('hello');
     const url = '/authentication/login'
-    console.log(login);
-      if(login.username){
-        window.location = "/customers/accounts/";
-      }
-    }
+    const request = new Request();
+
+    request.post(url, login)
+    .then(data => {
+      console.log('response', data);
+
+      return data
+    })
+    .then((data) => {
+      this.props.onLogin(data);
+    })
+  }
 
 
   render() {
@@ -31,8 +41,8 @@ class LoginContainer extends Component {
   //Following method checks if the Json object is empty
   isEmpty(obj) {
     for(var key in obj) {
-        if(obj.hasOwnProperty(key))
-            return false;
+      if(obj.hasOwnProperty(key))
+      return false;
     }
     return true;
   }
