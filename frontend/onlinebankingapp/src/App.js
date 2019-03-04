@@ -4,25 +4,25 @@ import LoginContainer from './containers/LoginContainer';
 import AccountContainer from './containers/AccountContainer';
 import Navbar from './Navbar';
 
+import Request from './helpers/request';
+
 
 class App extends Component {
 
   constructor(props){
     super(props);
-
+    this.state = {customer: null}
     this.handleLogin = this.handleLogin.bind(this);
   }
 
-  handleLogin(login){
-    const url = '/authentication/login'
+
+
+  handleLogin(){
+    const url = '/api/customers/1'
     const request = new Request()
 
-    request.post(url, login).then((data) => {
+    request.get(url).then((data) => {
       this.setState({customer: data})
-      if(!this.isEmpty(data)){
-        this.setState({loggedIn: true})
-      }
-      console.log(data);
     })
   }
   render() {
@@ -31,9 +31,12 @@ class App extends Component {
       <React.Fragment>
       <Switch>
       <Route exact path = '/' component={LoginContainer} onLogin={this.handleLogin}/>
-      <Route exact path = 'customers/accounts/' render ={(props) => {
-        const customer = this.handleLogin();
-        return<AccountContainer customer ={customer} />
+      <Route exact path = '/customers/accounts/' render ={(props) => {
+        if(!this.state.customer){
+        this.handleLogin();
+      }
+        console.log(this.state.customer);
+        return<AccountContainer customer ={this.state.customer} />
       }
     }
     />

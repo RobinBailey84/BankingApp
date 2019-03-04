@@ -46,13 +46,13 @@ public class DataLoader implements ApplicationRunner {
         customerRepository.save(customer3);
 
 
-        Account account1 = new Account(12345678, 123456, "regular", 1, 10000, customer1, "Current Account");
+        Account account1 = new Account(12345678, 123456, "regular", 1, 10000, customer1, "Current");
         accountRepository.save(account1);
 
-        Account account2 = new Account(11223344, 654321, "holiday saver", 3, 1200, customer2, "Savings Account");
+        Account account2 = new Account(11223344, 654321, "holiday saver", 3, 1200, customer2, "Savings");
         accountRepository.save(account2);
 
-        Account account3 = new Account(22334455, 112233, "car savings", 4, 10, customer3, "ISA Account");
+        Account account3 = new Account(22334455, 112233, "car savings", 4, 10, customer3, "ISA");
         accountRepository.save(account3);
 
         DateFormat sfd = new SimpleDateFormat("dd-mm-yyyy");

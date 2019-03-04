@@ -18,7 +18,7 @@ class LoginContainer extends Component {
     const url = '/authentication/login'
     console.log(login);
       if(login.username){
-        window.location = "/customer/accounts/" + data.customer.id;
+        window.location = "/customers/accounts/";
       }
     }
 
