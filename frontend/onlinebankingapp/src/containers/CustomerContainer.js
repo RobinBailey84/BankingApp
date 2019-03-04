@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SingleCustomer from '../components/SingleCustomer';
 import Request from '../helpers/request';
+import AccountList from '../components/AccountList';
 
 class CustomerContainer extends Component {
 
@@ -25,6 +26,7 @@ class CustomerContainer extends Component {
     return(
       <div>
       <SingleCustomer customer={this.state.customers} />
+      <AccountList accounts={this.state.customers}/>
       </div>
     )
   }

@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Request from '../helpers/request';
 import LoginForm from '../components/LoginForm';
 import SingleCustomer from '../components/SingleCustomer';
+import CustomerContainer from './CustomerContainer';
 
 class LoginContainer extends Component {
 
@@ -29,7 +30,7 @@ class LoginContainer extends Component {
 
   render(){
     if(this.state.loggedIn){
-      return <SingleCustomer customer={this.state.customer} />
+      return <CustomerContainer customer={this.state.customer} />
     }else{
       return <LoginForm onSubmit={this.handleLogin}/>
     }
