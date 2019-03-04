@@ -3,37 +3,29 @@ import React, {Component} from 'react';
 import Request from '../helpers/request';
 import LoginForm from '../components/LoginForm';
 import SingleCustomer from '../components/SingleCustomer';
-import CustomerContainer from './CustomerContainer';
+import Navbar from '../Navbar';
 
 
 class LoginContainer extends Component {
 
   constructor(props){
     super(props);
-    this.state = {customer: {}}
     this.state = {loggedIn: false}
     this.handleLogin = this.handleLogin.bind(this);
   }
 
   handleLogin(login){
     const url = '/authentication/login'
-    const request = new Request()
-
-    request.post(url, login).then((data) => {
-      this.setState({customer: data})
-      if(!this.isEmpty(data)){
-        this.setState({loggedIn: true})
+    console.log(login);
+      if(login.username){
+        window.location = "/customer/accounts/" + data.customer.id;
       }
-      console.log(data);
-    })
-  }
-// CustomerContainer
-  render(){
-    if(this.state.loggedIn){
-      return <CustomerContainer customer={this.state.customer} />
-    }else{
-      return <LoginForm onSubmit={this.handleLogin}/>
     }
+
+
+  render() {
+    return <LoginForm onSubmit={this.handleLogin}/>
+
   }
 
   //Following method checks if the Json object is empty

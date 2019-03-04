@@ -10,7 +10,7 @@ class AccountContainer extends Component{
 
   componentDidMount(){
     let request = new Request()
-    request.get('/api/accounts').then((data) => {
+    request.get('/api/customers/1/accounts').then((data) => {
       this.setState({accounts: data.accounts})
     })
   }
