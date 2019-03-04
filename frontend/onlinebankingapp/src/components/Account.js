@@ -9,11 +9,11 @@ const Account = (props) => {
     <div className="componenet">
       <p>Account Number: {props.account.accountNumber}</p>
       <p>Sort Code: {props.account.sortCode}</p>
-      <p>Account Name: {props.accountName}</p>
-      <p>Account Type: {props.accountType}</p>
-      <p>Interest Rate: {props.interestRate}</p>
-      <p>Balance: {props.balance}</p>
-      <p>Transactions: </p>
+      <p>Account Name: {props.account.accountName}</p>
+      <p>Account Type: {props.account.accountType}</p>
+      <p>Interest Rate: {props.account.interestRate}</p>
+      <p>Balance: {props.account.balance}</p>
+      <p>Transactions: {props.transactions}</p>
     </div>
   )
 

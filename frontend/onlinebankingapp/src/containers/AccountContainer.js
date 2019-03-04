@@ -11,11 +11,13 @@ class AccountContainer extends Component{
   componentDidMount(){
     let request = new Request()
     request.get('/api/customers/1/accounts').then((data) => {
-      this.setState({accounts: data.accounts})
+      this.setState({accounts: data._embedded.accounts})
+      console.log(data);
     })
   }
 
   render(){
+    console.log(this.props.customer);
     return(
 
       <AccountList accounts={this.state.accounts}/>

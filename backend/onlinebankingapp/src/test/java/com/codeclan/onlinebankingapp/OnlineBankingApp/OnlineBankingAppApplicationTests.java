@@ -50,7 +50,7 @@ public class OnlineBankingAppApplicationTests {
 		customerRepository.save(customer1);
 
 
-		Account account1 = new Account(12345678, 123456, "regular", 1, 1000, customer1, "Current Account");
+		Account account1 = new Account(12345678, 123456, "regular", 1, 1000, customer1, "Current EmbedAccountTransactions");
 		accountRepository.save(account1);
 	}
 
@@ -59,7 +59,7 @@ public class OnlineBankingAppApplicationTests {
 		Customer customer1 = new Customer("Robin Bailey", "Arseanl", "9 Laurel Park", 20000, 4 );
 		customerRepository.save(customer1);
 
-		Account account1 = new Account(12345678, 123456, "regular", 1, 1000, customer1, "Current Account");
+		Account account1 = new Account(12345678, 123456, "regular", 1, 1000, customer1, "Current EmbedAccountTransactions");
 		accountRepository.save(account1);
 
 		DateFormat sfd = new SimpleDateFormat("dd-mm-yyyy");
@@ -91,7 +91,7 @@ public class OnlineBankingAppApplicationTests {
 //	public void canGetTransactionsByAccount() {
 //		Customer customer5 = new Customer("John", "Fish", "25 City Centre", 30700, 3);
 //		customerRepository.save(customer5);
-//		Account account5 = new Account(12348878, 100456, "regular", 1, 10000, customer5, "Current Account");
+//		EmbedAccountTransactions account5 = new EmbedAccountTransactions(12348878, 100456, "regular", 1, 10000, customer5, "Current EmbedAccountTransactions");
 //		accountRepository.save(account5);
 //		DateFormat sfd = new SimpleDateFormat("dd-mm-yyyy");
 //		String newDate = "01-03-2019";
