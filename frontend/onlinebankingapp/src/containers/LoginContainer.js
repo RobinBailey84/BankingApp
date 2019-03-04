@@ -5,6 +5,7 @@ import LoginForm from '../components/LoginForm';
 import SingleCustomer from '../components/SingleCustomer';
 import CustomerContainer from './CustomerContainer';
 
+
 class LoginContainer extends Component {
 
   constructor(props){
@@ -16,10 +17,9 @@ class LoginContainer extends Component {
 
   handleLogin(login){
     const url = '/authentication/login'
-    const method = 'post'
     const request = new Request()
 
-    request.post(url, login, method).then((data) => {
+    request.post(url, login).then((data) => {
       this.setState({customer: data})
       if(!this.isEmpty(data)){
         this.setState({loggedIn: true})
@@ -27,7 +27,7 @@ class LoginContainer extends Component {
       console.log(data);
     })
   }
-
+// CustomerContainer
   render(){
     if(this.state.loggedIn){
       return <CustomerContainer customer={this.state.customer} />

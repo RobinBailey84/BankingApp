@@ -16,6 +16,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -86,7 +87,23 @@ public class OnlineBankingAppApplicationTests {
 		assertEquals("Minal Sakriya", foundCustomer.getName());
 	}
 
-
-
-
+//	@Test
+//	public void canGetTransactionsByAccount() {
+//		Customer customer5 = new Customer("John", "Fish", "25 City Centre", 30700, 3);
+//		customerRepository.save(customer5);
+//		Account account5 = new Account(12348878, 100456, "regular", 1, 10000, customer5, "Current Account");
+//		accountRepository.save(account5);
+//		DateFormat sfd = new SimpleDateFormat("dd-mm-yyyy");
+//		String newDate = "01-03-2019";
+//		Date date = null;
+//		try {
+//			date = sfd.parse(newDate);
+//		}	catch (ParseException e){
+//			e.printStackTrace();
+//		}
+//		Transaction transaction5 = new Transaction(100, "Flights",date, account5);
+//		transactionRepository.save(transaction5);
+//		List<Transaction> foundTransactions = transactionRepository.findTransactionsByAccountId(account5);
+//		assertEquals(1, foundTransactions.size());
+//	}
 }
