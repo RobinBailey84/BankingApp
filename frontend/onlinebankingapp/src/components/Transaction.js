@@ -6,10 +6,10 @@ const Transaction = (props) => {
   }
 
   return (
-    <div className="componenet">
-      <p>Amount: {props.transaction.amount}</p>
-      <p>Description: {props.transaction.description}</p>
-      <p>Date: {props.transaction.transactionDate}</p>
+    <div className="component">
+      <h5>Amount: {props.transaction.amount}</h5>
+      <h5>Description: {props.transaction.description}</h5>
+      <h5>Date: {props.transaction.transactionDate}</h5>
     </div>
   )
 

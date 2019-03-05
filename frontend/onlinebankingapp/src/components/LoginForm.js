@@ -13,9 +13,11 @@ const LoginForm = (props) => {
   }
 
   return (
-    <div>
+    <div className = "loginPage">
         <form onSubmit={handleSubmit}>
-          <p>Please enter your Login details</p>
+        <img src="/images/IRMLogo.png" alt="Logo"/>
+          <h1>The IRM Bank</h1>
+          <h4>Please enter your Login details</h4>
           <p>UserName: <input type="text" placeholder="UserName" name="username"/></p>
           <p>Password: <input type="password" placeholder="Password" name="password"/></p>
           <button type="submit">Login</button>

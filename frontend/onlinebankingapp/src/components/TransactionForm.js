@@ -22,18 +22,20 @@ const TransactionForm = (props) => {
   }
 
   return (
-    <div>
-    <form onSubmit={handleSubmit}>
-    <p>Make New Transaction:</p>
-    <p>Description: <input type="text" placeholder="Description" name="description"/></p>
-    <p>Amount: <input type="text" placeholder="Amount" name="amount"/></p>
-    <p>Date: <input type = "date" placeholder= "Date" name="transactionDate"/></p>
-    <select name="account">
-    <option disabled selected="defaultValue">Select an Account</option>
-    {options}
-    </select>
-    <button type="submit">Submit</button>
-    </form>
+
+    <div className="AccountsTransactions">
+      <form onSubmit={handleSubmit}>
+      <h4>Make New Transaction:</h4>
+      <p>Description: <input type="text" placeholder="Description" name="description"/></p>
+      <p>Amount: <input type="text" placeholder="Amount" name="amount"/></p>
+      <p>Date: <input type = "date" placeholder= "Date" name="transactionDate"/></p>
+      <select name="account">
+      <option disabled selected="defaultValue">Select an Account</option>
+      {options}
+      </select>
+      <button type="submit">Submit</button>
+      </form>
+
     </div>
   )
 }
