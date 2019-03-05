@@ -15,7 +15,7 @@ const TransactionForm = (props) => {
     const submit = {
       "description": event.target.description.value,
       "amount": event.target.amount.value,
-      "transactionDate": event.target.transactionDate.value,
+      "transactionDate": Date.now(),
       "account":event.target.account.value
     }
     props.onSubmit(submit);
@@ -28,7 +28,6 @@ const TransactionForm = (props) => {
       <h4>Make New Transaction:</h4>
       <p>Description: <input type="text" placeholder="Description" name="description"/></p>
       <p>Amount: <input type="text" placeholder="Amount" name="amount"/></p>
-      <p>Date: <input type = "date" placeholder= "Date" name="transactionDate"/></p>
       <select name="account" onChange={props.selectAccount}>
       <option disabled selected="defaultValue">Select an Account</option>
       {options}
