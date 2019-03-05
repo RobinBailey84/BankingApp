@@ -6,14 +6,15 @@ const Account = (props) => {
   }
 
   return (
-    <div className="componenet">
-      <p>Account Number: {props.account.accountNumber}</p>
-      <p>Sort Code: {props.account.sortCode}</p>
-      <p>Account Name: {props.account.accountName}</p>
-      <p>Account Type: {props.account.accountType}</p>
-      <p>Interest Rate: {props.account.interestRate}</p>
-      <p>Balance: {props.account.balance}</p>
-      <p>Transactions: {props.transactions}</p>
+    <div className="AccountsTransactions">
+      <h5>Account Number: {props.account.accountNumber}</h5>
+      <h5>Sort Code: {props.account.sortCode}</h5>
+      <h5>Account Name: {props.account.accountName}</h5>
+      <h5>Account Type: {props.account.accountType}</h5>
+      <h5>Interest Rate: {props.account.interestRate}</h5>
+      <h5>Balance: {props.account.balance}</h5>
+      <br/>
+      <h5>Transactions: {props.transactions}</h5>
     </div>
   )
 

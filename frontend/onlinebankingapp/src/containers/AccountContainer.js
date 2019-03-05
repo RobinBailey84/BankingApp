@@ -28,7 +28,7 @@ class AccountContainer extends Component{
     })
 
     // put / patch an update on the customer to reduce their balance by the value of the transaction
-    
+
   }
 
 
