@@ -4,7 +4,6 @@ const TransactionForm = (props) => {
 
   if(!props.accounts) return <p>Loading</p>
   const options = props.accounts.map((account, index) => {
-    console.log(account);
     return <option key={index}
     value={account._links.account.href}>{account.accountType}
     </option>

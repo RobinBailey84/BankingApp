@@ -3,6 +3,7 @@ import AccountList from '../components/AccountList';
 import Request from '../helpers/request.js';
 import TransactionForm from '../components/TransactionForm';
 import SingleCustomer from '../components/SingleCustomer';
+import EditCustomerForm from '../components/EditCustomerForm';
 
 
 class AccountContainer extends Component{
@@ -10,29 +11,38 @@ class AccountContainer extends Component{
     super(props);
     this.state = {
       accounts: [],
-      customer: null
     }
     this.handleTransactionSubmit = this.handleTransactionSubmit.bind(this);
     this.getAccounts = this.getAccounts.bind(this);
+    this.handleCustomerEdit = this.handleCustomerEdit.bind(this);
+    this.getCustomer = this.getCustomer.bind(this);
   }
 
   componentDidMount(){
     this.getAccounts();
-    const url2 = '/api/customers/' + this.props.customer.id
-    let request2 = new Request()
-    request2.get(url2).then((data) => {
-      this.setState({customer: data.customer})
-    })
+    this.getCustomer();
+    // const url2 = '/api/customers/' + this.props.customer.id
+    // let request2 = new Request()
+    // request2.get(url2).then((data) => {
+    //   this.setState({customer: data.customer})
+
   }
 
   getAccounts(){
     const url = '/api/customers/' + this.props.customer.id + '/accounts'
     let request = new Request()
     request.get(url).then((data) => {
-      console.log(data);
       this.setState({accounts: data._embedded.accounts});
-      console.log(data);
     });
+  }
+
+  getCustomer(){
+    const url = '/api/customers/' + this.props.customer.id
+    let request = new Request()
+    request.get(url).then((data) => {
+      console.log(data);
+      this.setState({customer: this.props.customer.id});
+    })
   }
 
   handleTransactionSubmit(transaction){
@@ -46,17 +56,28 @@ class AccountContainer extends Component{
 
   }
 
+  handleCustomerEdit(customer){
+    console.log(customer);
+    let request = new Request();
+    request.patch('/api/customers/' + this.props.customer.id, customer).then(() => {
+      this.getCustomer();
+      this.getAccounts();
+    })
+  }
+
 
 
   render(){
-    console.log("RENDEREDD");
     return(
       <div>
+
       <AccountList accounts={this.state.accounts}/>
 
       <TransactionForm accounts={this.state.accounts} onSubmit={this.handleTransactionSubmit}/>
 
       <SingleCustomer customer={this.props.customer} />
+
+      <EditCustomerForm customer={this.props.customer} onSubmit={this.handleCustomerEdit}/>
 
       </div>
     )

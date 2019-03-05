@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 
 import Request from '../helpers/request';
 import LoginForm from '../components/LoginForm';
-import SingleCustomer from '../components/SingleCustomer';
-import Navbar from '../Navbar';
+
 
 
 class LoginContainer extends Component {
@@ -17,14 +16,11 @@ class LoginContainer extends Component {
   }
 
   handleLogin(login){
-    console.log('hello');
     const url = '/authentication/login'
     const request = new Request();
 
     request.post(url, login)
     .then(data => {
-      console.log('response', data);
-
       return data
     })
     .then((data) => {
