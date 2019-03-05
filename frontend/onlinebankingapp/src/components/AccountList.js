@@ -14,9 +14,9 @@ const AccountList = (props) => {
     })
 
     return (
-      <li key={account.id} className = "component-item">
+      <p key={account.id} className = "component-item">
       <Account account={account} transactions={transactions}/>
-      </li>
+      </p>
     )
   }
 )
@@ -26,9 +26,9 @@ const AccountList = (props) => {
     <div className="Header-Logo2">
     <img src="/images/IRMLogo.png" alt="Logo"/>
       <h1>The IRM Bank</h1>
-    <ul className="component-list">
+    <p className="component-list">
     {accounts}
-    </ul>
+    </p>
     </div>
 
   )

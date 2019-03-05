@@ -25,6 +25,8 @@ class App extends Component {
 
   render() {
     if (this.state.customer) return <AccountContainer customer ={this.state.customer} />
+
+    
     return (
       <Router>
       <React.Fragment>
