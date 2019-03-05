@@ -8,7 +8,6 @@ const LoginForm = (props) => {
       "username": event.target.username.value,
       "password": event.target.password.value,
     }
-    console.log('handleSubmit Login Form', login);
     props.onSubmit(login);
   }
 

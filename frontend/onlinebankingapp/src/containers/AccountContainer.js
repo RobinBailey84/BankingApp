@@ -3,6 +3,7 @@ import AccountList from '../components/AccountList';
 import Request from '../helpers/request.js';
 import TransactionForm from '../components/TransactionForm';
 import SingleCustomer from '../components/SingleCustomer';
+import EditCustomerForm from '../components/EditCustomerForm';
 
 
 class AccountContainer extends Component{
@@ -16,16 +17,19 @@ class AccountContainer extends Component{
     this.handleTransactionSubmit = this.handleTransactionSubmit.bind(this);
     this.getAccounts = this.getAccounts.bind(this);
     this.updateAccountBalance = this.updateAccountBalance.bind(this);
+    this.handleCustomerEdit = this.handleCustomerEdit.bind(this);
     this.selectAccount = this.selectAccount.bind(this);
+
   }
 
   componentDidMount(){
     this.getAccounts();
-    const url2 = '/api/customers/' + this.props.customer.id
-    let request2 = new Request()
-    request2.get(url2).then((data) => {
-      this.setState({customer: data.customer})
-    })
+    this.getCustomer();
+    // const url2 = '/api/customers/' + this.props.customer.id
+    // let request2 = new Request()
+    // request2.get(url2).then((data) => {
+    //   this.setState({customer: data.customer})
+
   }
 
   getAccounts(){
@@ -35,6 +39,17 @@ class AccountContainer extends Component{
       this.setState({accounts: data._embedded.accounts});
     });
   }
+
+
+  getCustomer(){
+    const url = '/api/customers/' + this.props.customer.id
+    let request = new Request()
+    request.get(url).then((data) => {
+      console.log(data);
+      this.setState({customer: this.props.customer.id});
+    })
+  }
+
 
 
 
@@ -67,6 +82,17 @@ class AccountContainer extends Component{
 
   }
 
+
+  handleCustomerEdit(customer){
+    console.log(customer);
+    let request = new Request();
+    request.patch('/api/customers/' + this.props.customer.id, customer).then(() => {
+      this.getCustomer();
+      this.getAccounts();
+    })
+  }
+
+
   selectAccount(event){
     const accountFound = this.state.accounts.find(account => {
       return account._links.self.href === event.target.value
@@ -76,15 +102,18 @@ class AccountContainer extends Component{
   }
 
 
+
   render(){
-    console.log("RENDEREDD");
     return(
       <div>
+
       <AccountList accounts={this.state.accounts}/>
 
       <TransactionForm accounts={this.state.accounts} onSubmit={this.handleTransactionSubmit} selectAccount={this.selectAccount}/>
 
       <SingleCustomer customer={this.props.customer} />
+
+      <EditCustomerForm customer={this.props.customer} onSubmit={this.handleCustomerEdit}/>
 
       </div>
     )

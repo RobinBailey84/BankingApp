@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import LoginContainer from './containers/LoginContainer';
 import AccountContainer from './containers/AccountContainer';
-import Navbar from './Navbar';
 
-import Request from './helpers/request';
+
 
 
 class App extends Component {
@@ -16,11 +15,7 @@ class App extends Component {
   }
 
   handleLogin(loggedInUser){
-    console.log(loggedInUser);
-    // const url = '/api/customers/' + loggedInUser.id;
-    // const request = new Request()
     this.setState({ customer: loggedInUser })
-
   }
 
   render() {
