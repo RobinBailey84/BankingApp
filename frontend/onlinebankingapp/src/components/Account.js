@@ -7,6 +7,7 @@ const Account = (props) => {
 
   return (
     <div className="componenet">
+
       <p>Account Number: {props.account.accountNumber}</p>
       <p>Sort Code: {props.account.sortCode}</p>
       <p>Account Name: {props.account.accountName}</p>
@@ -14,6 +15,7 @@ const Account = (props) => {
       <p>Interest Rate: {props.account.interestRate}</p>
       <p>Balance: {props.account.balance}</p>
       <p>Transactions: {props.transactions}</p>
+
     </div>
   )
 

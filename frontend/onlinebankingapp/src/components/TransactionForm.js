@@ -4,6 +4,7 @@ const TransactionForm = (props) => {
 
   if(!props.accounts) return <p>Loading</p>
   const options = props.accounts.map((account, index) => {
+    console.log(account);
     return <option key={index}
     value={account._links.account.href}>{account.accountType}
     </option>
@@ -17,14 +18,13 @@ const TransactionForm = (props) => {
       "date": event.target.transactionDate.value,
       "account":event.target.account.value
     }
-    console.log(submit);
     props.onSubmit(submit);
   }
 
   return (
     <div>
     <form onSubmit={handleSubmit}>
-    <p>Make New Transact:</p>
+    <p>Make New Transaction:</p>
     <p>Description: <input type="text" placeholder="Description" name="description"/></p>
     <p>Amount: <input type="text" placeholder="Amount" name="amount"/></p>
     <p>Date: <input type = "date" placeholder= "Date" name="transactionDate"/></p>
