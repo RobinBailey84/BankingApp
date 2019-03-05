@@ -6,6 +6,7 @@ const Account = (props) => {
   }
 
   return (
+
     <div className="AccountsTransactions">
       <h5>Account Number: {props.account.accountNumber}</h5>
       <h5>Sort Code: {props.account.sortCode}</h5>
@@ -15,6 +16,7 @@ const Account = (props) => {
       <h5>Balance: {props.account.balance}</h5>
       <br/>
       <h5>Transactions: {props.transactions}</h5>
+
     </div>
   )
 
