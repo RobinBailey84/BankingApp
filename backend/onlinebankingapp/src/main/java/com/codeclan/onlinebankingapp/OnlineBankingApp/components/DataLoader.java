@@ -55,6 +55,9 @@ public class DataLoader implements ApplicationRunner {
         Account account3 = new Account(22334455, 112233, "car savings", 4, 10, customer3, "ISA");
         accountRepository.save(account3);
 
+        Account account4 = new Account(12395678, 126456, "regular2", 1, 80000, customer1, "Current2");
+        accountRepository.save(account4);
+
         DateFormat sfd = new SimpleDateFormat("dd-mm-yyyy");
         String newDate = "01-03-2019";
         Date date = null;

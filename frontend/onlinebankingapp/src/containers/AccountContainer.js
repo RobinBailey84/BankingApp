@@ -11,11 +11,15 @@ class AccountContainer extends Component{
     super(props);
     this.state = {
       accounts: [],
+      customer: null,
+      selectedAccount: null
     }
     this.handleTransactionSubmit = this.handleTransactionSubmit.bind(this);
     this.getAccounts = this.getAccounts.bind(this);
+    this.updateAccountBalance = this.updateAccountBalance.bind(this);
     this.handleCustomerEdit = this.handleCustomerEdit.bind(this);
-    this.getCustomer = this.getCustomer.bind(this);
+    this.selectAccount = this.selectAccount.bind(this);
+
   }
 
   componentDidMount(){
@@ -36,6 +40,7 @@ class AccountContainer extends Component{
     });
   }
 
+
   getCustomer(){
     const url = '/api/customers/' + this.props.customer.id
     let request = new Request()
@@ -45,16 +50,38 @@ class AccountContainer extends Component{
     })
   }
 
-  handleTransactionSubmit(transaction){
 
+
+
+  updateAccountBalance(transaction, account){
+  const newBalance = account.balance - transaction.amount;
+  const newAccount = {
+    "accountNumber": account.accountNumber,
+    "sortCode": account.sortCode,
+    "accountName": account.accountName,
+    "accountType": account.accountType,
+    "interestRate": account.interestRate,
+    "balance": newBalance
+  }
+  return newAccount;
+  }
+
+  handleTransactionSubmit(transaction){
+    console.log('transaction', transaction);
     let request = new Request();
-    request.post('/api/transactions', transaction).then(() => {
-      this.getAccounts();
-    })
+    request.post('/api/transactions', transaction)
 
     // put / patch an update on the customer to reduce their balance by the value of the transaction
 
+    const updatedAccount = this.updateAccountBalance(transaction, this.state.selectedAccount);
+
+    let secondRequest = new Request();
+    secondRequest.patch('/api/accounts/' + this.state.selectedAccount.id, updatedAccount).then(() => {
+      this.getAccounts();
+    });
+
   }
+
 
   handleCustomerEdit(customer){
     console.log(customer);
@@ -66,6 +93,15 @@ class AccountContainer extends Component{
   }
 
 
+  selectAccount(event){
+    const accountFound = this.state.accounts.find(account => {
+      return account._links.self.href === event.target.value
+    })
+
+    this.setState({ selectedAccount:  accountFound })
+  }
+
+
 
   render(){
     return(
@@ -73,7 +109,7 @@ class AccountContainer extends Component{
 
       <AccountList accounts={this.state.accounts}/>
 
-      <TransactionForm accounts={this.state.accounts} onSubmit={this.handleTransactionSubmit}/>
+      <TransactionForm accounts={this.state.accounts} onSubmit={this.handleTransactionSubmit} selectAccount={this.selectAccount}/>
 
       <SingleCustomer customer={this.props.customer} />
 
