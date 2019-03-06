@@ -4,8 +4,7 @@ import {Link} from 'react-router-dom';
 const NavBar = (props) => {
   return (
     <header>
-
-      <ul>
+      
         <li className="navLink">
           <Link to="/customers/accounts/">Accounts</Link>
 
