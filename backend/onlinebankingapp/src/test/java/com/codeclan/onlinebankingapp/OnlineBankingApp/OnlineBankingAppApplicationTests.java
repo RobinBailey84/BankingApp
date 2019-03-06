@@ -17,6 +17,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -62,8 +63,8 @@ public class OnlineBankingAppApplicationTests {
 		Account account1 = new Account(12345678, 123456, "regular", 1, 1000, customer1, "Current EmbedAccountTransactions");
 		accountRepository.save(account1);
 
-		DateFormat sfd = new SimpleDateFormat("dd-mm-yyyy");
-		String newDate = "01-03-2019";
+		DateFormat sfd = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		String newDate = "06-03-2019 10:05:45";
 		Date date = null;
 		try {
 			date = sfd.parse(newDate);
