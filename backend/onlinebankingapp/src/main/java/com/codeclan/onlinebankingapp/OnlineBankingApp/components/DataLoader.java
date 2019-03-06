@@ -16,7 +16,9 @@ import org.springframework.stereotype.Component;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
+import java.util.Locale;
 
 @Component
 public class DataLoader implements ApplicationRunner {
@@ -58,8 +60,8 @@ public class DataLoader implements ApplicationRunner {
         Account account4 = new Account(12395678, 126456, "regular2", 1, 80000, customer1, "Current2");
         accountRepository.save(account4);
 
-        DateFormat sfd = new SimpleDateFormat("dd-mm-yyyy");
-        String newDate = "01-03-2019";
+        DateFormat sfd = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        String newDate = "06-03-2019 10:05:45";
         Date date = null;
         try {
             date = sfd.parse(newDate);
