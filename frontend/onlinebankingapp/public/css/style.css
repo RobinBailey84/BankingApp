@@ -20,6 +20,20 @@ h1{
 .AccountsTransactions {
   align-items: center;
   text-align: left;
+  border-style: groove;
+  flex-grow: 2;
+  align-self: flex-end;
+
+}
+
+table, tr {
+  border: 1px solid black;
+}
+
+.Accounts-Transactions {
+  align-items: center;
+  text-align: left;
+  flex-grow: 1;
 }
 .component-list{
   align-items: center;
@@ -30,10 +44,26 @@ h1{
 }
 .component{
   align-items: left;
-}
+  flex-grow: 1;
 
+}
 
 body {
 background-color: lightgrey;
 
+}
+
+.parent-container{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap:wrap-reverse;
+  align-items: stretch;
+  border-style: solid;
+  justify-content: space-around;
+}
+
+.edit-details{
+  align-items: center;
+  text-align: left;
+  flex-grow: 1;
 }

@@ -30,8 +30,9 @@ class LoginContainer extends Component {
 
 
   render() {
-    return <LoginForm onSubmit={this.handleLogin}/>
 
+      return <LoginForm onSubmit={this.handleLogin}/>
+    
   }
 
   //Following method checks if the Json object is empty
