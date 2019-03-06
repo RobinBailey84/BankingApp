@@ -11,7 +11,7 @@ class AccountContainer extends Component{
     super(props);
     this.state = {
       accounts: [],
-      customer: null,
+      customer: props.customer,
       selectedAccount: null
     }
     this.handleTransactionSubmit = this.handleTransactionSubmit.bind(this);
@@ -23,7 +23,7 @@ class AccountContainer extends Component{
   }
 
   componentDidMount(){
-    this.getAccounts();
+    this.getCustomer();
     // const url2 = '/api/customers/' + this.props.customer.id
     // let request2 = new Request()
     // request2.get(url2).then((data) => {
@@ -32,6 +32,7 @@ class AccountContainer extends Component{
   }
 
   getAccounts(){
+    console.log(this.state.customer);
     const url = '/api/customers/' + this.props.customer.id + '/accounts'
     let request = new Request()
     request.get(url).then((data) => {
@@ -44,8 +45,9 @@ class AccountContainer extends Component{
     const url = '/api/customers/' + this.props.customer.id
     let request = new Request()
     request.get(url).then((data) => {
-      console.log(data);
-      this.setState({customer: this.props.customer.id});
+      this.setState({customer: data});
+    }).then(() => {
+      this.getAccounts()
     })
   }
 
@@ -76,17 +78,16 @@ class AccountContainer extends Component{
 
     let secondRequest = new Request();
     secondRequest.patch('/api/accounts/' + this.state.selectedAccount.id, updatedAccount).then(() => {
-      this.getAccounts();
+      this.getCustomer();
     });
 
   }
 
 
   handleCustomerEdit(customer){
-    console.log(customer);
     let request = new Request();
     request.patch('/api/customers/' + this.props.customer.id, customer).then(() => {
-      this.getAccounts();
+      this.getCustomer();
     })
   }
 
@@ -102,6 +103,7 @@ class AccountContainer extends Component{
 
 
   render(){
+    console.log("TRIGGERED");
     return(
       <div>
 
@@ -109,9 +111,9 @@ class AccountContainer extends Component{
 
       <TransactionForm accounts={this.state.accounts} onSubmit={this.handleTransactionSubmit} selectAccount={this.selectAccount}/>
 
-      <EditCustomerForm customer={this.props.customer} onSubmit={this.handleCustomerEdit}/>
+      <SingleCustomer customer={this.state.customer} />
 
-      <SingleCustomer customer={this.props.customer} onSubmit={this.handleCustomerEdit}/>
+      <EditCustomerForm customer={this.state.customer} onSubmit={this.handleCustomerEdit}/>
 
       </div>
     )
