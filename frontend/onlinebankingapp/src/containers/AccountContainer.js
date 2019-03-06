@@ -24,7 +24,6 @@ class AccountContainer extends Component{
 
   componentDidMount(){
     this.getAccounts();
-    this.getCustomer();
     // const url2 = '/api/customers/' + this.props.customer.id
     // let request2 = new Request()
     // request2.get(url2).then((data) => {
@@ -87,7 +86,6 @@ class AccountContainer extends Component{
     console.log(customer);
     let request = new Request();
     request.patch('/api/customers/' + this.props.customer.id, customer).then(() => {
-      this.getCustomer();
       this.getAccounts();
     })
   }
@@ -111,9 +109,9 @@ class AccountContainer extends Component{
 
       <TransactionForm accounts={this.state.accounts} onSubmit={this.handleTransactionSubmit} selectAccount={this.selectAccount}/>
 
-      <SingleCustomer customer={this.props.customer} />
-
       <EditCustomerForm customer={this.props.customer} onSubmit={this.handleCustomerEdit}/>
+
+      <SingleCustomer customer={this.props.customer} onSubmit={this.handleCustomerEdit}/>
 
       </div>
     )
