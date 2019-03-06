@@ -77,6 +77,7 @@ public class OnlineBankingAppApplicationTests {
 
 	}
 
+
 	@Test
 	public void findCustomerByNameAndPassword(){
 //		Customer customer2 = new Customer("Minal Sakriya", "Java", "5 Glasgow Street", 50000, 2);
@@ -87,6 +88,7 @@ public class OnlineBankingAppApplicationTests {
 //		assertEquals(customer2.getAddress(), foundCustomer.getAddress());
 		assertEquals("Minal Sakriya", foundCustomer.getName());
 	}
+
 
 //	@Test
 //	public void canGetTransactionsByAccount() {
