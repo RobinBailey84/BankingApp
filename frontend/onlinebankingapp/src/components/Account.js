@@ -15,8 +15,8 @@ const Account = (props) => {
       <tr>Sort Code:{props.account.sortCode}</tr>
       <tr>Account Name: {props.account.accountName}</tr>
       <tr>Account Type: {props.account.accountType}</tr>
-      <tr>Interest Rate: {props.account.interestRate}</tr>
-      <tr>Balance: {props.account.balance}</tr>
+      <tr>Interest Rate: {props.account.interestRate}%</tr>
+      <tr>Balance: £{props.account.balance}</tr>
       <br/>
       </table>
       </div>
