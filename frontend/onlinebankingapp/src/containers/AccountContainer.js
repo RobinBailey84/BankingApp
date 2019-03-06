@@ -114,17 +114,19 @@ class AccountContainer extends Component{
         <AccountList accounts={this.state.accounts}/>
         </div>
 
-        <div className="single-customer">
-        <SingleCustomer customer={this.state.customer} />
-        </div>
+        <div className="three-amigos">
+          <div className="single-customer">
+          <SingleCustomer customer={this.state.customer} />
+          </div>
 
-        <div className="edit-form">
-        <EditCustomerForm customer={this.state.customer} onSubmit={this.handleCustomerEdit}/>
-        </div>
+          <div className="edit-form">
+          <EditCustomerForm customer={this.state.customer} onSubmit={this.handleCustomerEdit}/>
+          </div>
 
-        <div className="transaction-form">
-        <TransactionForm accounts={this.state.accounts} onSubmit={this.handleTransactionSubmit} selectAccount={this.selectAccount}/>
-        </div>
+          <div className="transaction-form">
+          <TransactionForm accounts={this.state.accounts} onSubmit={this.handleTransactionSubmit} selectAccount={this.selectAccount}/>
+          </div>
+          </div>
 
 
 
