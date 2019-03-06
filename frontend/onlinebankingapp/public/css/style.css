@@ -1,0 +1,39 @@
+/* .navLink {
+  display: flex;
+  background-color: orange;
+} */
+
+h1{
+  border-top-style: solid;
+  border-top-width: thick;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: black;
+  background-color: red;
+  margin-bottom: 100px;
+}
+
+.Header-Logo2{
+  align-items: center;
+  text-align: center;
+}
+.AccountsTransactions {
+  align-items: center;
+  text-align: left;
+}
+.component-list{
+  align-items: center;
+}
+
+.loginPage{
+  text-align: center;
+}
+.component{
+  align-items: left;
+}
+
+
+body {
+background-color: lightgrey;
+
+}

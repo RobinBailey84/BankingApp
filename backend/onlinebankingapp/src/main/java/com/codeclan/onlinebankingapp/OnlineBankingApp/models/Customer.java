@@ -1,5 +1,7 @@
 package com.codeclan.onlinebankingapp.OnlineBankingApp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +26,10 @@ public class Customer {
     @Column
     private int salary;
 
-    @Column
+    @Column(name = "credit_rating")
     private int creditRating;
 
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "customer")
     private List<Account> accounts;
 
 //    private List<Loan> loan;
@@ -39,7 +41,7 @@ public class Customer {
         this.address = address;
         this.salary = salary;
         this.creditRating = creditRating;
-        this.accounts = new ArrayList<Account>();
+        this.accounts = new ArrayList<>();
     }
 
     public Customer() {
@@ -104,4 +106,7 @@ public class Customer {
     public void addAccount(Account account) {
         this.accounts.add(account);
     }
+
+
+
 }

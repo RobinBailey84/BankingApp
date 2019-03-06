@@ -1,5 +1,7 @@
 package com.codeclan.onlinebankingapp.OnlineBankingApp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -14,35 +16,30 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
 
-    @Column
+    @Column(name = "account_number")
     private int accountNumber;
 
-    @Column
+    @Column(name="sort_code")
     private int sortCode;
 
-    @Column
+    @Column(name = "account_name")
     private String accountName;
 
-    @Column
+    @Column(name = "account_type")
     private String accountType;
 
-    @Column
+    @Column(name = "interest_rate")
     private int interestRate;
 
-    @Column
+    @Column(name = "balance")
     private double balance;
 
+    @JsonIgnoreProperties(value = "accounts")
     @ManyToOne
     @JoinColumn(name="customer_id", nullable = false)
     private Customer customer;
 
-    @ManyToMany
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @JoinTable(
-            name = "accounts_transactions",
-            joinColumns = {@JoinColumn(name = "account_id", nullable = false, updatable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "transaction_id", nullable = false, updatable = false)}
-    )
+    @OneToMany(mappedBy = "account")
     private List<Transaction> transactions;
 
 
@@ -53,7 +50,7 @@ public class Account {
         this.interestRate = interestRate;
         this.balance = balance;
         this.customer = customer;
-        this.transactions = new ArrayList<Transaction>();
+        this.transactions = new ArrayList<>();
         this.accountType = accountType;
     }
 
@@ -116,6 +113,14 @@ public class Account {
         this.customer = customer;
     }
 
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
     public List<Transaction> getTransactions() {
         return transactions;
     }
@@ -124,11 +129,7 @@ public class Account {
         this.transactions = transactions;
     }
 
-    public String getAccountType() {
-        return accountType;
-    }
-
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
+    public void addTransaction(Transaction transaction) {
+        this.transactions.add(transaction);
     }
 }
