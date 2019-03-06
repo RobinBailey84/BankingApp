@@ -20,6 +20,19 @@ h1{
 .AccountsTransactions {
   align-items: center;
   text-align: left;
+  border-style: groove;
+
+
+}
+
+table, tr {
+  border: 1px solid black;
+}
+
+.Accounts-Transactions {
+  align-items: center;
+  text-align: left;
+  flex-grow: 1;
 }
 .component-list{
   align-items: center;
@@ -30,10 +43,42 @@ h1{
 }
 .component{
   align-items: left;
-}
+  text-align: left;
+  /* flex-grow: 1; */
+  /* border: 1px solid yellow; */
 
+}
 
 body {
 background-color: lightgrey;
+
+}
+
+.parent-container{
+  display: flex;
+  justify-content: space-between;
+  /* flex-wrap:wrap-reverse; */
+  /* align-items: stretch; */
+  /* border-style: solid; */
+  /* justify-content: space-around; */
+  flex-direction: row-reverse;
+  /* border: 1px solid green; */
+}
+
+.edit-details{
+  /* align-items: center; */
+  text-align: left;
+  /* flex-grow: 1; */
+  /* border: 1px solid green; */
+
+}
+
+.transaction-form{
+  /* border: 1px solid orange; */
+}
+
+.three-amigos{
+  /* border: 5px solid blue; */
+  flex-grow: 0;
 
 }

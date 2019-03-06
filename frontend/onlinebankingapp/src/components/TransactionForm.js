@@ -22,7 +22,7 @@ const TransactionForm = (props) => {
 
   return (
 
-    <div className="AccountsTransactions">
+    <div className="Accounts-Transactions">
       <form onSubmit={handleSubmit}>
       <h4>Make New Transaction:</h4>
       <p>Description: <input type="text" placeholder="Description" name="description"/></p>

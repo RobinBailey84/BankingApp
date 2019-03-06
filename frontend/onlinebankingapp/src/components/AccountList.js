@@ -22,13 +22,11 @@ const AccountList = (props) => {
 
 
   return (
-    <div className="header-Logo2">
-    <img src="/images/IRMLogo.png" alt="Logo"/>
-      <h1>The IRM Bank</h1>
+
     <p className="component-list">
     {accounts}
     </p>
-    </div>
+  
 
   )
 }

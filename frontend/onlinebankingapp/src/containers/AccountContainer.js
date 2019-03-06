@@ -103,19 +103,37 @@ class AccountContainer extends Component{
 
 
   render(){
-    console.log("TRIGGERED");
     return(
-      <div>
+      <div className="header-Logo2">
+        <img src="/images/IRMLogo.png" alt="Logo"/>
+        <h1>The IRM Bank</h1>
 
-      <AccountList accounts={this.state.accounts}/>
+      <div className="parent-container">
 
-      <TransactionForm accounts={this.state.accounts} onSubmit={this.handleTransactionSubmit} selectAccount={this.selectAccount}/>
+        <div className="accounts">
+        <AccountList accounts={this.state.accounts}/>
+        </div>
 
-      <SingleCustomer customer={this.state.customer} />
+        <div className="three-amigos">
+          <div className="single-customer">
+          <SingleCustomer customer={this.state.customer} />
+          </div>
 
-      <EditCustomerForm customer={this.state.customer} onSubmit={this.handleCustomerEdit}/>
+          <div className="edit-form">
+          <EditCustomerForm customer={this.state.customer} onSubmit={this.handleCustomerEdit}/>
+          </div>
+
+          <div className="transaction-form">
+          <TransactionForm accounts={this.state.accounts} onSubmit={this.handleTransactionSubmit} selectAccount={this.selectAccount}/>
+          </div>
+          </div>
+
+
+
+        </div>
 
       </div>
+
     )
 
   }

@@ -18,7 +18,7 @@ const EditCustomerForm = (props) => {
   }
 
   return (
-    <div>
+    <div className = "edit-details">
     <h4>Edit Details</h4>
     <form onSubmit={handleSubmit}>
     <input type="text" name="name" placeholder="name"/>
