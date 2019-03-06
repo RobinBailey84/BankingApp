@@ -21,8 +21,7 @@ h1{
   align-items: center;
   text-align: left;
   border-style: groove;
-  flex-grow: 2;
-  align-self: flex-end;
+
 
 }
 
@@ -44,7 +43,9 @@ table, tr {
 }
 .component{
   align-items: left;
-  flex-grow: 1;
+  text-align: left;
+  /* flex-grow: 1; */
+  /* border: 1px solid yellow; */
 
 }
 
@@ -55,15 +56,29 @@ background-color: lightgrey;
 
 .parent-container{
   display: flex;
-  justify-content: flex-start;
-  flex-wrap:wrap-reverse;
-  align-items: stretch;
-  border-style: solid;
-  justify-content: space-around;
+  justify-content: space-between;
+  /* flex-wrap:wrap-reverse; */
+  /* align-items: stretch; */
+  /* border-style: solid; */
+  /* justify-content: space-around; */
+  flex-direction: row-reverse;
+  /* border: 1px solid green; */
 }
 
 .edit-details{
-  align-items: center;
+  /* align-items: center; */
   text-align: left;
-  flex-grow: 1;
+  /* flex-grow: 1; */
+  /* border: 1px solid green; */
+
+}
+
+.transaction-form{
+  /* border: 1px solid orange; */
+}
+
+.three-amigos{
+  /* border: 5px solid blue; */
+  flex-grow: 0;
+
 }
